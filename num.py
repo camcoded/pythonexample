@@ -1,5 +1,5 @@
-num1= (input('please enter first number: '))
-num2= (input('please enter second number: '))
+num1= float(input('please enter first number: '))
+num2= float(input('please enter second number: '))
 
 answer = num1 + num2
 
