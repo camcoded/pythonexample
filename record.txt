@@ -1,0 +1,6 @@
+register,name,marks
+1,peter,75
+2,james,92
+3,cameron,67
+4,jon,89
+5,ali,89
