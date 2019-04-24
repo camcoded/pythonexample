@@ -11,6 +11,6 @@ use sakila;
  -- describe language
  -- insert into language(name) values ('Swaheli');
  -- select * from language
-select * from film_text order by film_id;
-insert into film_text values (1001, 'My title', 'Description 1')
-
+-- select * from film_text order by film_id;
+-- insert into film_text values (1001, 'My title', 'Description 1')
+insert into film_text
