@@ -1,3 +1,6 @@
+import pdb
+pdb.set_trace()
+
 def inputfile():
    
     print("1.Show data")
@@ -23,6 +26,8 @@ def inputfile():
                 r.write(reg + "," + name + "," + mark)
                 r.close()
                 inputfile()
+            else:
+                print("end program")
             
 
                 
