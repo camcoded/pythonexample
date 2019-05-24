@@ -1,0 +1,186 @@
+"http://flowlog1992.s3.amazonaws.com/"
+
+[
+    [
+        "vpc-08e3ade9573741679",
+        [
+            "VPC1"
+        ],
+        "10.0.0.0/16"
+    ]
+]
+
+
+ fl-0b593a50adfb30ae5
+
+
+aws ec2 describe-instances --filter "Name=ip-address,Values='35.177.120.239'"
+
+
+{
+    "Reservations": [
+        {
+            "Instances": [
+                {
+                    "Monitoring": {
+                        "State": "disabled"
+                    },
+                    "PublicDnsName": "",
+                    "State": {
+                        "Code": 16,
+                        "Name": "running"
+                    },
+                    "EbsOptimized": false,
+                    "LaunchTime": "2019-05-22T12:46:07.000Z",
+                    "PublicIpAddress": "35.177.120.239",
+                    "PrivateIpAddress": "192.168.1.235",
+                    "ProductCodes": [],
+                    "VpcId": "vpc-098dc7b0c7883759f",
+                    "CpuOptions": {
+                        "CoreCount": 1,
+                        "ThreadsPerCore": 1
+                    },
+                    "StateTransitionReason": "",
+                    "InstanceId": "i-031e465516b4362a6",
+                    "EnaSupport": true,
+                    "ImageId": "ami-0009a33f033d8b7b6",
+                    "PrivateDnsName": "ip-192-168-1-235.eu-west-2.compute.internal",
+                    "KeyName": "qwikLABS-L333-184158",
+                    "SecurityGroups": [
+                        {
+                            "GroupName": "qls-184158-857ec886466de165-CliHostSecurityGroup-PD6874OUYATE",
+                            "GroupId": "sg-004047c8dd2225996"
+                        }
+                    ],
+                    "ClientToken": "qls-1-CliHo-184EXDWX72740",
+                    "SubnetId": "subnet-0d0685bd88037d349",
+                    "InstanceType": "t2.micro",
+                    "CapacityReservationSpecification": {
+                        "CapacityReservationPreference": "open"
+                    },
+                    "NetworkInterfaces": [
+                        {
+                            "Status": "in-use",
+                            "MacAddress": "06:98:e4:d7:b7:f8",
+                            "SourceDestCheck": false,
+                            "VpcId": "vpc-098dc7b0c7883759f",
+                            "Description": "",
+                            "NetworkInterfaceId": "eni-00659784aa193098f",
+                            "PrivateIpAddresses": [
+                                {
+                                    "PrivateIpAddress": "192.168.1.235",
+                                    "Primary": true,
+                                    "Association": {
+                                        "PublicIp": "35.177.120.239",
+                                        "PublicDnsName": "",
+                                        "IpOwnerId": "amazon"
+                                    }
+                                }
+                            ],
+                            "SubnetId": "subnet-0d0685bd88037d349",
+                            "Attachment": {
+                                "Status": "attached",
+                                "DeviceIndex": 0,
+                                "DeleteOnTermination": true,
+                                "AttachmentId": "eni-attach-0ebca57e1273fcf7f",
+                                "AttachTime": "2019-05-22T12:46:07.000Z"
+                            },
+                            "Groups": [
+                                {
+                                    "GroupName": "qls-184158-857ec886466de165-CliHostSecurityGroup-PD6874OUYATE",
+                                    "GroupId": "sg-004047c8dd2225996"
+                                }
+                            ],
+                            "Ipv6Addresses": [],
+                            "OwnerId": "168686495747",
+                            "PrivateIpAddress": "192.168.1.235",
+                            "Association": {
+                                "PublicIp": "35.177.120.239",
+                                "PublicDnsName": "",
+                                "IpOwnerId": "amazon"
+                            }
+                        }
+                    ],
+                    "SourceDestCheck": false,
+                    "Placement": {
+                        "Tenancy": "default",
+                        "GroupName": "",
+                        "AvailabilityZone": "eu-west-2a"
+                    },
+                    "Hypervisor": "xen",
+                    "BlockDeviceMappings": [
+                        {
+                            "DeviceName": "/dev/xvda",
+                            "Ebs": {
+                                "Status": "attached",
+                                "DeleteOnTermination": true,
+                                "VolumeId": "vol-052ddace819f55957",
+                                "AttachTime": "2019-05-22T12:46:07.000Z"
+                            }
+                        }
+                    ],
+                    "Architecture": "x86_64",
+                    "RootDeviceType": "ebs",
+                    "RootDeviceName": "/dev/xvda",
+                    "VirtualizationType": "hvm",
+                    "Tags": [
+                        {
+                            "Value": "CliHostInstance",
+                            "Key": "aws:cloudformation:logical-id"
+                        },
+                        {
+                            "Value": "arn:aws:cloudformation:eu-west-2:168686495747:stack/qls-184158-857ec886466de165/774ddd70-7c8f-11e9-a53f-0ad9e87c6998",
+                            "Key": "aws:cloudformation:stack-id"
+                        },
+                        {
+                            "Value": "CLI Host",
+                            "Key": "Name"
+                        },
+                        {
+                            "Value": "qls-184158-857ec886466de165",
+                            "Key": "aws:cloudformation:stack-name"
+                        },
+                        {
+                            "Value": "333",
+                            "Key": "LabName"
+                        },
+                        {
+                            "Value": "awsacademy",
+                            "Key": "CustomerName"
+                        }
+                    ],
+                    "HibernationOptions": {
+                        "Configured": false
+                    },
+                    "AmiLaunchIndex": 0
+                }
+            ],
+            "ReservationId": "r-01b8e4b1b8a1143ad",
+            "RequesterId": "925882491723",
+            "Groups": [],
+            "OwnerId": "168686495747"
+        }
+    ]
+}
+
+
+aws ec2 describe-instances --filter "Name=ip-address,Values='<WebServerIP>'" --query 'Reservations[*].Instances[*].[State,PrivateIpAddress,InstanceId,SecurityGroups,SubnetId,KeyName]'
+-filters the json file above
+
+
+
+ssh -i qwikLABS-L333-184158.pem ec2-user@35.177.120.239
+
+18.130.75.244
+
+aws ec2 describe-route-tables --filter "Name=association.subnet-id,Values='vpc-08e3ade9573741679'"
+
+
+aws ec2 create-route-table --vpc-id vpc-08e3ade9573741679
+
+aws ec2 describe-network-acls --filter "Name=association.subnet-id,Values='VPC1PublicSubnetID'" --query 'NetworkAcls[*].[NetworkAclId,Entries]'
+
+aws ec2 delete-network-acl-entry --network-acl-id acl-5fb85d36 --ingress --rule-number 100
+
+
+aws ec2 delete-network-acl-entry --network-acl-id acl-0d62c0ea6d1cbdcc4 --ingress --rule-number 40

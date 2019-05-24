@@ -1,0 +1,38 @@
+ "VolumeId": "vol-0a90dd68fa0a8582b"
+
+i-0f144007a35b4ef12
+
+
+{
+    "Description": "",
+    "Tags": [],
+    "Encrypted": false,
+    "VolumeId": "vol-0a90dd68fa0a8582b",
+    "State": "pending",
+    "VolumeSize": 8,
+    "StartTime": "2019-05-23T10:26:10.000Z",
+    "Progress": "",
+    "OwnerId": "907395371769",
+    "SnapshotId": "snap-099ba0e752ada1400"
+}
+
+
+echo "* * * * *  aws ec2 create-snapshot --volume-id VOLUME-ID 2>&1 >> /tmp/cronlog" > cronjob
+crontab cronjob
+
+crontab -r
+-to stop the cron job
+
+
+aws ec2 describe-snapshots --filters "Name=volume-id,Values=vol-0a90dd68fa0a8582b"
+- to see the new volume
+
+aws ec2 describe-snapshots --filters "Name=volume-id, Values=VOLUME-ID" --query 'Snapshots[*].SnapshotId'
+-shows all volumes on instances
+
+more snapshotter.py
+
+python snapshotter.py
+-run the snapshotter.py script
+
+

@@ -1,3 +1,7 @@
-hello my friends
-john is going
-to london
+aws s3 mb s3://<mompopcafe-cam123> --region eu-west-2
+
+NY7duJPTnWFzr3nX8TPCmbI8cOb4z4y+95EiioRM
+
+AKIA5GVR27Z2G6CFUOXF
+
+arn:aws:sns:eu-west-2:907684806260:s3NotificationTopic
